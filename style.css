@@ -1,0 +1,152 @@
+@font-face {
+    font-family: 'Georgia Pro';
+    src: url('data/GeorgiaPro-CondSemiBold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Georgia Pro';
+    src: url('data/GeorgiaPro-Regular.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Georgia Pro';
+    src: url('data/GeorgiaPro-Light.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Georgia Pro';
+    src: url('data/GeorgiaPro-LightItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+
+.header {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    justify-content: space-between; 
+    padding: 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+    left: 0;
+     top: 0;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  margin-top: 100px;
+}
+
+.site-title {
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-right {
+  display: flex;
+  gap: 4rem;
+  width: auto;
+  padding-left: 0;
+}
+
+.main-buttons {
+  font-family: 'Georgia Pro', erif;
+  font-size: 20px;
+  cursor: pointer;
+  color: black;
+}
+
+
+.main-buttons:hover,
+.nav-link:hover,
+.dropdown a:hover {
+  color: blue;
+}
+
+.project-text {
+  font-size: 3rem;
+}
+
+
+
+
+#bird-interface {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+ 
+}
+
+.bird {
+  position: absolute;
+  width: 14vw;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  box-sizing: content-box;
+  display: block;
+}
+
+.bird.loading {
+  pointer-events: none;
+}
+
+
+.bird-v {
+  position: absolute;
+  width: 10vw;
+  transition: filter 0.3s ease;
+  cursor: pointer;
+}
+
+.bird.bird-v:hover {
+  filter: grayscale(100%);
+}
+
+.bird-container {
+  position: absolute; /* or relative based on layout */
+  top: [your value];
+  left: [your value];
+}
+
+
+.corner-title {
+  position: fixed;
+  bottom: 0px;
+  left: 2rem;
+  font-size: 7rem;
+  font-weight: normal;
+  letter-spacing:-0.2px;
+  color: black;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 9999; /* high enough to float above everything */
+  margin: 0;
+  padding: 0;
+}
+.bird-line {
+  position: absolute;
+  width: 1px;
+  background-color: #444;
+  pointer-events: none;
+  margin-left:4px;
+}
+
+.bird:nth-child(1) { left: 83vw; top: 60vh; }
+.bird:nth-child(2) { left: 73vw; top: 45vh; }
+.bird:nth-child(3) { left: 60vw; top: 43vh; }
+.bird:nth-child(4) { left: 49vw; top: 24vh; }
+.bird:nth-child(5) { left: 38vw; top: 10vh; }
+.bird:nth-child(6) { left: 28vw; top: 0vh; }
+.bird:nth-child(7) { left: 12vw; top: 5vh; }
+.bird:nth-child(8) { left: 0vw; top: 18vh; }

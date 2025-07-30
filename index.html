@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
+  <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="Main.js"></script>
+  <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
+ 
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Elyssa Yiyan</title>
+  <style>
+  body {
+      font-family: 'Georgia Pro';
+      background-color: rgb(255);
+        margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+    }
+  </style>
+</head>
+<body>
+<header class="header">
+  <a href="index.html" class="site-title">Elyssa Yiyan</a>
+  <div class="nav-right">
+    <div class="main-buttons">About</div>
+    <div class="main-buttons">Contact</div>
+  </div>
+</header>
+
+<main>  <div id="bird-interface">
+    <img src="data/bird0.svg" class="bird bird-v" data-title="08 PLAY!" data-hover="data/grey0.svg" data-project="project0">
+    <img src="data/bird1.svg" class="bird bird-v" data-title="07 SCRPBOOK" data-hover="data/grey1.svg" data-project="project1">
+    <img src="data/bird2.svg" class="bird" data-title="06 TRUISMS" data-hover="data/grey2.svg" data-project="project2">
+    <img src="data/bird3.svg" class="bird" data-title="05 EARTH SINGS" data-hover="data/grey3.svg" data-project="project3">
+    <img src="data/bird4.svg" class="bird bird-v" data-title="04 HUMAN DESIGNERS" data-hover="data/grey4.svg" data-project="project4">
+    <img src="data/bird5.svg" class="bird bird-v" data-title="03 BOOKSTORES" data-hover="data/grey5.svg" data-project="project5">
+    <img src="data/bird6.svg" class="bird" data-title="02 RMIT GRAD SHOWS" data-hover="data/grey6.svg" data-project="project6">
+    <img src="data/bird7.svg" class="bird" data-title="01 TERRAIN" data-hover="data/grey7.svg" data-project="project7">
+  </div>
+
+</main>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+  const birds = document.querySelectorAll('.bird');
+
+  const cornerLabel = document.createElement('div');
+  cornerLabel.className = 'corner-title';
+  document.body.appendChild(cornerLabel);
+
+  birds.forEach((bird, i) => {
+    bird.style.opacity = '0';
+    bird.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    bird.classList.add('loading');
+
+    setTimeout(() => {
+      bird.style.opacity = '1';
+      bird.classList.remove('loading');
+    }, i * 400);
+
+    const originalSrc = bird.getAttribute('src');
+    const greySrc = bird.getAttribute('data-hover');
+
+    bird.addEventListener('mouseenter', () => {
+      bird.setAttribute('src', greySrc);
+      cornerLabel.innerText = bird.dataset.title;
+      cornerLabel.style.opacity = '1';
+    });
+
+    bird.addEventListener('mouseleave', () => {
+      bird.setAttribute('src', originalSrc);
+      cornerLabel.style.opacity = '0';
+    });
+
+    bird.addEventListener('click', () => {
+      const projectName = bird.getAttribute('data-project');
+     const projectRoutes = {
+    project1: 'project1/index.html',
+    project2: 'project2/index.html',
+    project3: 'project3/index.html',
+    project4: 'project4/index.html',
+    project5: 'rmit/index.html',
+    project6: 'rmit/index.html',
+    project7: 'terrain/index.html',
+    project8: 'project8/index.html'
+  };
+
+  if (projectRoutes[projectName]) {
+    window.location.href = projectRoutes[projectName];
+  }
+});
+  });
+});
+
+</script>
+
+
+</body>
+</html>
