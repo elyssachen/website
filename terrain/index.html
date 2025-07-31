@@ -30,14 +30,28 @@
 <header class="header">
   <a href="../index.html" class="site-title">Elyssa Yiyan</a> 
   <div class="bird-nav">
-      <img src="data/grey7.svg" class="bird" data-id="7" data-target="../Main/terrain/index.html">
-      <img src="data/grey6.svg" class="bird" data-id="6" data-target="../Main/rmit/index.html">
-      <img src="data/grey5.svg" class="bird bird-h" data-id="5" data-target="../Main/book/index.html">
-      <img src="data/grey4.svg" class="bird bird-h" data-id="4" data-target="../Main/human/index.html">
-      <img src="data/grey3.svg" class="bird" data-id="3" data-target="../Main/earth/index.html">
-      <img src="data/grey2.svg" class="bird" data-id="2" data-target="../Main/truisms/index.html">
-      <img src="data/grey1.svg" class="bird" data-id="1" data-target="../Main/scrp/index.html">
-      <img src="data/grey0.svg" class="bird bird-h" data-id="0" data-target="../Main/play/index.html">
+      <img src="data/grey7.svg" class="bird" data-id="7">
+  <a href="../rmit/index.html">
+      <img src="data/grey6.svg" class="bird" data-id="6">
+  </a>
+  <a href="../book/index.html">
+      <img src="data/grey5.svg" class="bird bird-h" data-id="5">
+  </a>
+  <a href="../human/index.html">
+      <img src="data/grey4.svg" class="bird bird-h" data-id="4">
+  </a>
+  <a href="../earth/index.html">
+      <img src="data/grey3.svg" class="bird" data-id="3">
+  </a>
+  <a href="../truisms/index.html">
+      <img src="data/grey2.svg" class="bird" data-id="2">
+  </a>
+  <a href="../scrp/index.html">
+      <img src="data/grey1.svg" class="bird" data-id="1">
+  </a>
+  <a href="../play/index.html">
+      <img src="data/grey0.svg" class="bird bird-h" data-id="0">
+  </a>
     </div>
   <div class="nav-right">
     <div class="main-buttons">About</div>
@@ -74,44 +88,19 @@
 </div>
       
           <script>
-const birds = document.querySelectorAll('.bird');
-const display = document.getElementById('projectDisplay');
-let lockedBirdId = null;
+document.addEventListener('DOMContentLoaded', () => {
+  const birds = document.querySelectorAll('.bird');
 
-function loadProject(file) {
-  fetch(file)
-    .then(res => res.text())
-    .then(html => {
-      display.innerHTML = html;
-      display.classList.add('active');
-    });
-}
+  birds.forEach(bird => {
+    const id = bird.dataset.id;
 
-birds.forEach(bird => {
-  const file = bird.dataset.target;
-  const id = bird.dataset.id;
-
-  bird.addEventListener('mouseover', () => {
-    if (lockedBirdId !== id) {
+    bird.addEventListener('mouseover', () => {
       bird.src = `data/bird${id}.svg`;
-    }
-  });
-
-  bird.addEventListener('mouseout', () => {
-    if (lockedBirdId !== id) {
-      bird.src = `data/grey${id}.svg`;
-    }
-  });
-
-  bird.addEventListener('click', () => {
-    lockedBirdId = id;
-
-    birds.forEach(b => {
-      const bId = b.dataset.id;
-      b.src = bId === lockedBirdId ? `data/bird${bId}.svg` : `data/grey${bId}.svg`;
     });
 
-    loadProject(file);
+    bird.addEventListener('mouseout', () => {
+      bird.src = `data/grey${id}.svg`; 
+    });
   });
 });
 
