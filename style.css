@@ -48,6 +48,7 @@ main {
 .site-title {
   font-size: 20px;
   text-decoration: none;
+    font-weight:500;
   color: black;
 }
 
