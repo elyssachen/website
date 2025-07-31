@@ -48,7 +48,7 @@ main {
 .site-title {
   font-size: 20px;
   text-decoration: none;
-    font-weight:500;
+  font-weight: 500;
   color: black;
 }
 
@@ -60,16 +60,17 @@ main {
 }
 
 .main-buttons {
+  font-family: 'Georgia Pro', serif;
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
   color: black;
-    text-decoration:none;
 }
 
 a {
   text-decoration: none;
 }
+
 
 #bird-interface {
   position: relative;
@@ -106,7 +107,7 @@ a {
 }
 
 .bird-container {
-  position: absolute;
+  position: absolute; /* or relative based on layout */
   top: [your value];
   left: [your value];
 }
@@ -114,14 +115,15 @@ a {
 
 .corner-title {
   position: fixed;
+  bottom: 0px;
   left: 2rem;
   font-size: 7rem;
-  font-weight: 500;
+  font-weight: normal;
   letter-spacing:-0.2px;
   color: black;
   pointer-events: none;
   opacity: 0;
-  z-index: 9999; 
+  z-index: 9999; /* high enough to float above everything */
   margin: 0;
   padding: 0;
 }
