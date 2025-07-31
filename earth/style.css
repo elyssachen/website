@@ -66,17 +66,7 @@ main {
   font-weight: 500;
   cursor: pointer;
   color: black;
-}
-
-
-.main-buttons:hover,
-.nav-link:hover,
-.dropdown a:hover {
-  color: blue;
-}
-
-.project-text {
-  font-size: 3rem;
+    text-decoration: none;
 }
 
 .main-content {
