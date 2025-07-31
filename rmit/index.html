@@ -80,18 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   birds.forEach(bird => {
     const id = bird.dataset.id;
-    const file = bird.dataset.target;
 
     bird.addEventListener('mouseover', () => {
-      bird.src = `data/bird${id}.svg`;  
+      bird.src = `data/bird${id}.svg`;
     });
 
     bird.addEventListener('mouseout', () => {
       bird.src = `data/grey${id}.svg`; 
-    });
-
-    bird.addEventListener('click', () => {
-      window.location.href = file;
     });
   });
 });
