@@ -1,0 +1,233 @@
+@font-face {
+    font-family: 'Georgia Pro';
+    src: url('data/GeorgiaPro-CondSemiBold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Georgia Pro';
+    src: url('data/GeorgiaPro-Regular.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Georgia Pro';
+    src: url('data/GeorgiaPro-CondLight.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Georgia Pro';
+    src: url('data/GeorgiaPro-LightItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+
+
+.header {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    justify-content: space-between; 
+    padding: 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+    left: 0;
+     top: 0;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  margin-top: 100px;
+}
+
+.site-title {
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-right {
+  display: flex;
+  gap: 4rem;
+  width: auto;
+  padding-left: 0;
+}
+
+.main-buttons {
+  font-family: 'Georgia Pro', serif;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  color: black;
+}
+
+
+.main-buttons:hover,
+.nav-link:hover,
+.dropdown a:hover {
+  color: blue;
+}
+
+.project-text {
+  font-size: 3rem;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  padding-bottom: 0;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 5vw;
+    margin-bottom: 2vh;
+    top: 0.5rem;
+    align-items: center;
+  justify-content: center;
+}
+
+.intro-title {
+  position: fixed;
+  bottom: 0px;
+  left: 2rem;
+  font-size: 7rem;
+  font-weight: 500;
+  letter-spacing:-0.2px;
+  color: black;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+}
+
+.description {
+  font-size: 25px;
+  font-weight: 500;
+  text-align: left;
+  line-height: 1;
+  letter-spacing:-0.2px;
+  max-width: 67vw;
+  margin-top:5vh;
+}
+
+.slideshow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -3rem;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+}
+
+.media-display {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+   bottom:5vw;
+}
+
+#main-media,
+#main-video {
+  max-width: 52vw;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+.nav-zone {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+}
+
+.left-zone, .right-zone {
+  width: 50%;
+  height: 100%;
+  position: fixed;
+}
+
+.left-zone {
+  left:0;
+}
+
+.right-zone {
+  right:0;
+}
+
+
+
+.caption {
+  position: absolute;
+  bottom: 1.3rem;
+  right: 2rem;
+  font-size: 1rem;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  font-weight: 500;
+}
+
+
+.bird-nav {
+  position: fixed;
+  top: -0.2rem;
+  left:50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.bird {
+  width: 25px;
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.bird-h {
+  width: 18px;
+}
+
+
+.project {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 100px);
+  overflow: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #fff;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.project.active {
+  opacity: 1;
+}
