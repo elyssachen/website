@@ -69,16 +69,6 @@ main {
 }
 
 
-.main-buttons:hover,
-.nav-link:hover,
-.dropdown a:hover {
-  color: blue;
-}
-
-.project-text {
-  font-size: 3rem;
-}
-
 .main-content {
   display: flex;
   flex-direction: column;
