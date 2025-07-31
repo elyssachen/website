@@ -77,8 +77,21 @@
 const birds = document.querySelectorAll('.bird');
 const display = document.getElementById('projectDisplay');
 let lockedBirdId = null;
+let previewTimeout;
+
+// Load default project
+loadProject('projects/default.html');
 
 function loadProject(file) {
+  fetch(file)
+    .then(res => res.text())
+    .then(html => {
+      display.innerHTML = html;
+      display.classList.add('active');
+    });
+}
+
+function previewProject(file) {
   fetch(file)
     .then(res => res.text())
     .then(html => {
@@ -94,12 +107,17 @@ birds.forEach(bird => {
   bird.addEventListener('mouseover', () => {
     if (lockedBirdId !== id) {
       bird.src = `data/bird${id}.svg`;
+      previewProject(file);
     }
   });
 
   bird.addEventListener('mouseout', () => {
     if (lockedBirdId !== id) {
       bird.src = `data/grey${id}.svg`;
+      loadProject(lockedBirdId
+        ? birds.find(b => b.dataset.id === lockedBirdId).dataset.target
+        : 'projects/default.html'
+      );
     }
   });
 
@@ -114,6 +132,7 @@ birds.forEach(bird => {
     loadProject(file);
   });
 });
+
 
 const mediaData = [
   {
