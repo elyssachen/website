@@ -135,7 +135,7 @@ a {
   margin-left:4px;
 }
 
-.bird:nth-child(1) { left: 85vw; top: 60vh; }
+.bird:nth-child(1) { left: 84vw; top: 60vh; }
 .bird:nth-child(2) { left: 73vw; top: 45vh; }
 .bird:nth-child(3) { left: 60vw; top: 43vh; }
 .bird:nth-child(4) { left: 49vw; top: 24vh; }
