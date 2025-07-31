@@ -59,19 +59,11 @@ main {
 }
 
 .main-buttons {
-  font-family: 'Georgia Pro', erif;
+  font-family: 'Georgia Pro', serif;
   font-size: 20px;
-  cursor: pointer;
     text-decoration: none;
   color: black;
 }
-
-
-.project-text {
-  font-size: 3rem;
-}
-
-
 
 
 #bird-interface {
