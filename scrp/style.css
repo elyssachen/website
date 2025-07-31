@@ -47,6 +47,7 @@ main {
 }
 
 .site-title {
+    font-family: 'Georgia Pro', serif;
   font-size: 20px;
   font-weight: 500;
   text-decoration: none;
@@ -63,21 +64,10 @@ main {
 .main-buttons {
   font-family: 'Georgia Pro', serif;
   font-size: 20px;
-  font-weight: 500;
-  cursor: pointer;
+    text-decoration: none;
   color: black;
 }
 
-
-.main-buttons:hover,
-.nav-link:hover,
-.dropdown a:hover {
-  color: blue;
-}
-
-.project-text {
-  font-size: 3rem;
-}
 
 .main-content {
   display: flex;
