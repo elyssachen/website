@@ -24,7 +24,9 @@
 }
 
 
-
+a {
+  text-decoration: none;
+}
 
 .header {
     display: flex;
