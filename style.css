@@ -59,7 +59,6 @@ main {
 }
 
 .main-buttons {
-  font-family: 'Georgia Pro', serif;
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
@@ -67,7 +66,9 @@ main {
     text-decoration:none;
 }
 
-
+.project-text {
+  font-size: 3rem;
+}
 
 #bird-interface {
   position: relative;
