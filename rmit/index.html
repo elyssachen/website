@@ -74,51 +74,23 @@
           <script>
 document.addEventListener('DOMContentLoaded', () => {
   const birds = document.querySelectorAll('.bird');
-  const hoverFrame = document.getElementById("hoverFrame");
-  let lockedBirdId = null;
-
-  function previewProject(file) {
-    hoverFrame.src = file;
-  }
-
-  function loadProject(file) {
-    window.location.href = file;
-  }
 
   birds.forEach(bird => {
-    const file = bird.dataset.target;
     const id = bird.dataset.id;
+    const file = bird.dataset.target;
 
     bird.addEventListener('mouseover', () => {
-      if (lockedBirdId !== id) {
-        bird.src = `data/bird${id}.svg`;
-        previewProject(file);
-      }
+      bird.src = `data/bird${id}.svg`;  
     });
 
     bird.addEventListener('mouseout', () => {
-      if (lockedBirdId !== id) {
-        bird.src = `data/grey${id}.svg`;
-        previewProject(lockedBirdId
-          ? birds.find(b => b.dataset.id === lockedBirdId).dataset.target
-          : 'projects/default.html'
-        );
-      }
+      bird.src = `data/grey${id}.svg`; 
     });
 
     bird.addEventListener('click', () => {
-      lockedBirdId = id;
-
-      birds.forEach(b => {
-        const bId = b.dataset.id;
-        b.src = bId === lockedBirdId ? `data/bird${bId}.svg` : `data/grey${bId}.svg`;
-      });
-
-      loadProject(file);
+      window.location.href = file;
     });
   });
-
-  previewProject('projects/default.html'); // initial preview
 });
 
 
