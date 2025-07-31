@@ -68,6 +68,9 @@ main {
   color: black;
 }
 
+a {
+  text-decoration: none;
+}
 
 .project-text {
   font-size: 3rem;
