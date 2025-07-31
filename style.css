@@ -67,8 +67,8 @@ main {
     text-decoration:none;
 }
 
-.project-text {
-  font-size: 3rem;
+a {
+  text-decoration: none;
 }
 
 #bird-interface {
