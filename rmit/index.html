@@ -45,8 +45,8 @@
   </div>
 </header>
 
-<div id="projectDisplay" class="project"> </div>  
  <div class="main-content">
+   <iframe id="hoverFrame" style="width:100%; height:500px; border:none;"></iframe>
  <div class="intro">
  <div class="intro-title">02 RMIT GRAD SHOWS</div>
 </div>
@@ -72,63 +72,53 @@
 </div>
       
           <script>
-const birds = document.querySelectorAll('.bird');
-const display = document.getElementById('projectDisplay');
-let lockedBirdId = null;
-let previewTimeout;
+document.addEventListener('DOMContentLoaded', () => {
+  const birds = document.querySelectorAll('.bird');
+  const hoverFrame = document.getElementById("hoverFrame");
+  let lockedBirdId = null;
 
-// Load default project
-loadProject('projects/default.html');
+  function previewProject(file) {
+    hoverFrame.src = file;
+  }
 
-function loadProject(file) {
-  fetch(file)
-    .then(res => res.text())
-    .then(html => {
-      display.innerHTML = html;
-      display.classList.add('active');
-    });
-}
+  function loadProject(file) {
+    window.location.href = file;
+  }
 
-function previewProject(file) {
-  fetch(file)
-    .then(res => res.text())
-    .then(html => {
-      display.innerHTML = html;
-      display.classList.add('active');
-    });
-}
+  birds.forEach(bird => {
+    const file = bird.dataset.target;
+    const id = bird.dataset.id;
 
-birds.forEach(bird => {
-  const file = bird.dataset.target;
-  const id = bird.dataset.id;
-
-  bird.addEventListener('mouseover', () => {
-    if (lockedBirdId !== id) {
-      bird.src = `data/bird${id}.svg`;
-      previewProject(file);
-    }
-  });
-
-  bird.addEventListener('mouseout', () => {
-    if (lockedBirdId !== id) {
-      bird.src = `data/grey${id}.svg`;
-      loadProject(lockedBirdId
-        ? birds.find(b => b.dataset.id === lockedBirdId).dataset.target
-        : 'projects/default.html'
-      );
-    }
-  });
-
-  bird.addEventListener('click', () => {
-    lockedBirdId = id;
-
-    birds.forEach(b => {
-      const bId = b.dataset.id;
-      b.src = bId === lockedBirdId ? `data/bird${bId}.svg` : `data/grey${bId}.svg`;
+    bird.addEventListener('mouseover', () => {
+      if (lockedBirdId !== id) {
+        bird.src = `data/bird${id}.svg`;
+        previewProject(file);
+      }
     });
 
-    loadProject(file);
+    bird.addEventListener('mouseout', () => {
+      if (lockedBirdId !== id) {
+        bird.src = `data/grey${id}.svg`;
+        previewProject(lockedBirdId
+          ? birds.find(b => b.dataset.id === lockedBirdId).dataset.target
+          : 'projects/default.html'
+        );
+      }
+    });
+
+    bird.addEventListener('click', () => {
+      lockedBirdId = id;
+
+      birds.forEach(b => {
+        const bId = b.dataset.id;
+        b.src = bId === lockedBirdId ? `data/bird${bId}.svg` : `data/grey${bId}.svg`;
+      });
+
+      loadProject(file);
+    });
   });
+
+  previewProject('projects/default.html'); // initial preview
 });
 
 
