@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
+  <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="earth.js"></script>
+  <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Elyssa Yiyan</title>
+  <style>
+  body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    font-family:'Georgia Pro';
+    padding: 0;
+    background-color: rgb(255);
+    }
+  </style>
+</head>
+
+<body>
+<header class="header">
+  <a href="../index.html" class="site-title">Elyssa Yiyan</a> 
+  <div class="bird-nav">
+   <a href="../terrain/index.html">
+        <img src="data/grey7.svg" class="bird" data-id="7">
+  </a>
+  <a href="../rmit/index.html">
+      <img src="data/grey6.svg" class="bird" data-id="6">
+  </a>
+  <a href="../book/index.html">
+      <img src="data/grey5.svg" class="bird bird-h" data-id="5">
+  </a>
+  <a href="../human/index.html">
+      <img src="data/grey4.svg" class="bird bird-h" data-id="4">
+  </a>
+      <img src="data/grey3.svg" class="bird" data-id="3">
+   <a href="../truisms/index.html">
+      <img src="data/grey2.svg" class="bird" data-id="2">
+</a>
+  <a href="../scrp/index.html">
+      <img src="data/grey1.svg" class="bird" data-id="1">
+  </a>
+   <a href="../play/index.html">
+      <img src="data/grey0.svg" class="bird bird-h" data-id="0">
+  </a>
+  </div>
+  <div class="nav-right">
+  <a href="../about/index.html"><div class="main-buttons">About</div></a>
+  </div>
+</header>
+
+    
+ <div class="main-content">
+ <div class="intro">
+ <div class="intro-title">05 EARTH SINGS</div>
+</div>
+
+
+<div class="slideshow-wrapper">
+  <div class="media-display">
+   <div class="nav-zone">
+  <div class="left-zone"></div>
+  <div class="right-zone"></div>
+</div>
+    <img id="main-media" src="data/earth.jpg" alt="Gallery image">
+    <video id="main-video" class="hidden" autoplay muted loop>
+      <source src="data/earth5.mp4" type="video/mp4">
+      Your browser does not support this video.
+    </video>
+  </div>
+</div>
+
+<div class="caption" id="media-caption">
+  _Publication Design
+</div>
+
+
+</div>
+      
+          <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const birds = document.querySelectorAll('.bird');
+
+  birds.forEach(bird => {
+    const id = bird.dataset.id;
+
+    bird.addEventListener('mouseover', () => {
+      bird.src = `data/bird${id}.svg`;
+    });
+
+    bird.addEventListener('mouseout', () => {
+      bird.src = `data/grey${id}.svg`; 
+    });
+  });
+});
+const mediaData = [
+  {
+    type: 'video',
+    src: 'data/earth5.mp4',
+    caption: 'Crochet Artefact'
+  },
+  {
+    type: 'image',
+    src: 'data/earth.jpg',
+    caption: 'Crochet Artefact'
+  },
+ {
+    type: 'image',
+    src: 'data/earth2.jpg',
+    caption: 'Crochet Artefact'
+  },
+  {
+    type: 'image',
+    src: 'data/earth3.jpg',
+    caption: 'Crochet Artefact'
+  },
+   {
+    type: 'image',
+    src: 'data/earth4.jpg',
+    caption: 'Crochet Artefact'
+  },
+  {
+    type: 'image',
+    src: 'data/earth6.png',
+    caption: 'Stitch chart'
+  }
+];
+
+let currentIndex = 0;
+const mainImg = document.getElementById('main-media');
+const mainVideo = document.getElementById('main-video');
+const caption = document.getElementById('media-caption');
+
+function updateDisplay(index) {
+  const item = mediaData[index];
+  caption.innerHTML = item.caption;
+
+  if (item.type === 'image') {
+    mainImg.src = item.src;
+    mainImg.classList.remove('hidden');
+    mainVideo.classList.add('hidden');
+  } else {
+    mainVideo.querySelector('source').src = item.src;
+    mainVideo.load();
+    mainVideo.classList.remove('hidden');
+    mainImg.classList.add('hidden');
+  }
+}
+
+const prevZone = document.querySelector('.left-zone');
+const nextZone = document.querySelector('.right-zone');
+
+prevZone.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + mediaData.length) % mediaData.length;
+  updateDisplay(currentIndex);
+});
+
+nextZone.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % mediaData.length;
+  updateDisplay(currentIndex);
+});
+
+// Initial load
+updateDisplay(currentIndex);
+
+const mediaDisplay = document.querySelector('.media-display');
+
+mediaDisplay.addEventListener('mousemove', e => {
+  const bounds = mediaDisplay.getBoundingClientRect();
+  const mouseX = e.clientX - bounds.left;
+
+  if (mouseX < bounds.width / 2) {
+    mediaDisplay.style.cursor = "url('data/arrow-left.png'), pointer";
+  } else {
+    mediaDisplay.style.cursor = "url('data/arrow-right.png'), pointer";
+  }
+});
+
+
+  </script>
+</body>
+</html>
