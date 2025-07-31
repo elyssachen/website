@@ -125,7 +125,7 @@ main {
   bottom: 0px;
   left: 2rem;
   font-size: 7rem;
-  font-weight: normal;
+  font-weight: 500;
   letter-spacing:-0.2px;
   color: black;
   pointer-events: none;
