@@ -141,7 +141,7 @@ a {
 #main-media,
 #main-video {
   max-width: 52vw;
-  height: auto;
+  max-height: 75vh;
   position: relative;
   z-index: 1;
 }
