@@ -189,6 +189,13 @@ main {
   transition: transform 0.3s;
 }
 
+.bird2 {
+  width: 25px;
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
 .bird-h {
   width: 18px;
 }
